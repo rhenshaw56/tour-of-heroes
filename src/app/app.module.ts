@@ -8,12 +8,26 @@ import { HeroService } from './hero.service';
 import { AppComponent }  from './app.component';
 import { HeroesComponent } from './heroes.component';
 import { HeroDetailComponent } from './hero-detail.component';
+import { DashboardComponent } from './dashboard.component';
 
 // router declaration
 const RoutingModule = RouterModule.forRoot([
   {
     path: 'heroes',
     component: HeroesComponent
+  },
+  {
+    path: '',
+    redirectTo: '/dashboard',
+    pathMatch: 'full'
+  },
+  {
+    path: 'detail/:id',
+    component: HeroDetailComponent
+  }
+  {
+    path: 'dashboard',
+    component: DashboardComponent
   }
 ])
 
@@ -22,6 +36,7 @@ const RoutingModule = RouterModule.forRoot([
   imports:      [ BrowserModule, FormsModule, RoutingModule ],
   declarations: [
     AppComponent,
+    DashboardComponent,
     HeroesComponent,
     HeroDetailComponent
   ],

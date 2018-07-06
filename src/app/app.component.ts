@@ -6,8 +6,11 @@ import { templateJitUrl } from '@angular/compiler';
     selector: 'my-app',
     template: `
         <h1>{{title}}</h1>
-        <heroes></heroes>
-        `
+        <nav>
+            <a routerLink="/dashboard">Dashboard</a>
+            <a routerLink="/heroes">Heroes</a>
+        </nav>
+        <router-outlet></router-outlet>        `
 })
 
 export class AppComponent {
