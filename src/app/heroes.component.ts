@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Hero } from './hero';
 import { HeroService } from './hero.service';
 import { HEROES } from './mock-heroes';
+import { Router } from '@angular/router';
 
 const appStyles =[`
  .selected {
@@ -57,8 +58,12 @@ const appStyles =[`
 @Component({
   selector: 'heroes',
   template: `
-      <hero-detail [hero]="selectedHero"></hero-detail>
-      <h2>My Heroes</h2>
+      <div *ngIf="selectedHero">
+        <h2>
+          {{selectedHero.name | uppercase}} is my hero
+        </h2>
+        <button (click)="goToDetail()">View Details</button>
+      </div>
       <ul class="heroes">
         <li *ngFor="let hero of heroes"
           (click)=onSelect(hero)
@@ -75,13 +80,17 @@ const appStyles =[`
   
 })
 export class HeroesComponent implements OnInit  {
-  constructor( private heroService : HeroService ) {}
+  constructor(
+    private heroService : HeroService,
+    private router : Router
+  ) {}
   getHeroes() : void {
     console.log('in get heroes');
     this.heroService.getHeroes()
       .then( heroes => this.heroes = heroes);
   }
   ngOnInit() : void {
+    // console.log(Reflect)
     console.log('in oninit');
     this.getHeroes()
   }
@@ -91,6 +100,13 @@ export class HeroesComponent implements OnInit  {
   onSelect(hero :Hero): void {
     console.log('hero ->', hero);
     this.selectedHero = hero
+  }
+  goToDetail(): void {
+    console.log('thiiiys ->', this);
+    this.router.navigate([
+      '/detail',
+      this.selectedHero.id
+    ]);
   }
  }
 
