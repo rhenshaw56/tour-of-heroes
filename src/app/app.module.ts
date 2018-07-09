@@ -2,6 +2,7 @@ import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { HttpModule } from '@angular/http';
 
 import { HeroService } from './hero.service';
 
@@ -33,7 +34,12 @@ const RoutingModule = RouterModule.forRoot([
 
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, RoutingModule ],
+  imports:      [
+    BrowserModule,
+    FormsModule,
+    HttpModule,
+    RoutingModule
+  ],
   declarations: [
     AppComponent,
     DashboardComponent,
