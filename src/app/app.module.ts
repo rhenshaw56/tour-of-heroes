@@ -25,7 +25,7 @@ const RoutingModule = RouterModule.forRoot([
   {
     path: 'detail/:id',
     component: HeroDetailComponent
-  }
+  },
   {
     path: 'dashboard',
     component: DashboardComponent
