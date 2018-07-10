@@ -1,4 +1,5 @@
-<div *ngIf="hero">
+<div *ngIf="hero" class="detail">
+    <button (click)="goBack()">Back</button>
     <h2>{{hero.name}} details</h2>
     <div>
         <label>id: </label>{{hero.id}}
@@ -7,5 +8,8 @@
         <label>name: </label>
         <input [(ngModel)]="hero.name" placeholder="name">
     </div>
-    <button (click)="goBack()">Back</button>
+
+    <button (click)="save()">Save</button>
+    <button (click)="save()">Delete</button>
+    <button (click)="save()">Edit</button>
 </div>

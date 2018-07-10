@@ -3,7 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
+
+// {HTTP bit}
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMememoryDataService } from './in-memory-data.service';
 
 import { HeroService } from './hero.service';
 
@@ -19,8 +22,9 @@ import { RoutingModule } from './modules/app-routing.module';
   imports:      [
     BrowserModule,
     FormsModule,
-    RoutingModule,
     HttpModule,
+    InMemoryWebApiModule.forRoot(InMememoryDataService),
+    RoutingModule,
   ],
   declarations: [
     AppComponent,
