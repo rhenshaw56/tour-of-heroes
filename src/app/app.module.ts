@@ -5,13 +5,13 @@ import { RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 
-import { HeroService } from './hero.service';
+// import { HeroService } from './hero.service';
 
 import { AppComponent }  from './app.component';
-import { HeroesComponent } from './heroes.component';
-import { HeroDetailComponent } from './hero-detail.component';
-import { DashboardComponent } from './dashboard.component';
-import { RoutingModule } from './modules/app-routing.module';
+// import { HeroesComponent } from './heroes.component';
+// import { HeroDetailComponent } from './hero-detail.component';
+// import { DashboardComponent } from './dashboard.component';
+// import { RoutingModule } from './modules/app-routing.module';
 
 
 
@@ -19,16 +19,18 @@ import { RoutingModule } from './modules/app-routing.module';
   imports:      [
     BrowserModule,
     FormsModule,
-    RoutingModule,
+    // RoutingModule,
     HttpModule,
   ],
   declarations: [
     AppComponent,
-    DashboardComponent,
-    HeroesComponent,
-    HeroDetailComponent
+    // DashboardComponent,
+    // HeroesComponent,
+    // HeroDetailComponent
   ],
-  providers: [ HeroService ],
+  providers: [
+    // HeroService
+  ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule {}
